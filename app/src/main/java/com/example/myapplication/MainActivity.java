@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.domain.entities.GradeInstructor;
 import com.example.myapplication.domain.entities.Person;
+import com.example.myapplication.domain.entities.Postulant;
 import com.example.myapplication.ui.screens.MainActivity2;
 
 import java.io.Serializable;
@@ -54,16 +55,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onNewViewActivity(View v) {
-        Person person = new Person();
-        person.setName(edtName.getText().toString());
-        person.setLastName(edtLastName.getText().toString());
-        person.setAge(Integer.parseInt(edtAge.getText().toString()));
-        person.setExperience(getExperience());
-        person.setGradeInstructor((GradeInstructor) spGradeInstructor.getSelectedItem());
-//        Toast.makeText(this,person.toString(),Toast.LENGTH_LONG).show();
+        Postulant postulant = new Postulant();
+        postulant.setName(edtName.getText().toString());
+        postulant.setLastName(edtLastName.getText().toString());
+        postulant.setAge(Integer.parseInt(edtAge.getText().toString()));
+        postulant.setExperience(getExperience());
+        postulant.setGradeInstructor((GradeInstructor) spGradeInstructor.getSelectedItem());
+//        Toast.makeText(this,postulant.toString(),Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, MainActivity2.class);
 //        Bundle bundle = new Bundle();
-        intent.putExtra("data_person", person);
+        intent.putExtra("data_postulant", postulant);
         startActivity(intent);
         finish();
 

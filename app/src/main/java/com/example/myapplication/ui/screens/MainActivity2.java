@@ -14,9 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.domain.entities.Person;
-import com.example.myapplication.infrastructure.models.PersonModel;
-
-import org.w3c.dom.Text;
+import com.example.myapplication.domain.entities.Postulant;
+import com.example.myapplication.infrastructure.models.PostulantModel;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -35,10 +34,10 @@ public class MainActivity2 extends AppCompatActivity {
         txtvResultsScore = (TextView) findViewById(R.id.txtvResultScore);
 
         Intent intentPerson = getIntent();
-        Person person = (Person) intentPerson.getSerializableExtra("data_person");
-        PersonModel personModel = new PersonModel(person);
-        txtvResultsPerson.setText(personModel.dataViewResults());
-        txtvResultsScore.setText(personModel.dataViewTotalScore());
+        Postulant dataPostulant = (Postulant) intentPerson.getSerializableExtra("data_postulant");
+        PostulantModel postulantModel = new PostulantModel(dataPostulant);
+        txtvResultsPerson.setText(postulantModel.dataViewResults());
+        txtvResultsScore.setText(postulantModel.dataViewTotalScore());
     }
 
     public void onReturnMain(View v) {
